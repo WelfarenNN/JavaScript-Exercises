@@ -174,10 +174,13 @@ if (Password.length >= 12) {
 
 let xp = 250;
 const levelUpAt = 200;
+console.log(xp);
 if (xp >= levelUpAt) {
   console.log("Level up!");
   xp = xp - levelUpAt;
   console.log(xp, "after");
+} else {
+  console.log(xp);
 }
 
 // ----- 4. Tip calculator -----
@@ -187,17 +190,12 @@ if (xp >= levelUpAt) {
 let bill = 180;
 let serviceWasGood = true;
 if (serviceWasGood === true) {
-  console.log("Good");
-  serviceWasGood = (bill / 100) * 20;
-  console.log(serviceWasGood, "Good");
-  let totAl = bill + serviceWasGood;
-  console.log(totAl);
-} else if (serviceWasGood === false) {
-  console.log("Not bad");
-  serviceWasGood = (bill / 100) * 10;
-  console.log(serviceWasGood, "Not bad");
+  bill = bill + bill * 0.2;
+  console.log(bill, "Good");
+} else {
+  bill = bill + bill * 0.1;
+  console.log(bill, "Not bad");
 }
-
 // ----- 5. Weather outfit -----
 // Variables: temp, isRaining (boolean).
 //   raining AND temp < 15 -> "Coat and umbrella", raining only -> "Umbrella",
@@ -219,11 +217,11 @@ if (israining === true && teMp < 15) {
 // Variables: score, attendedExtraClass (boolean).
 // Pass if score >= 50, OR if score >= 45 AND attended the extra class. Log "Pass" or "Fail".
 
-let Score = 50;
+let Score = 40;
 let attendedExtraClass = true;
 if (Score >= 50) {
   console.log("Pass");
-} else if (attendedExtraClass === true && score >= 45) {
+} else if (Score >= 45 && attendedExtraClass === true) {
   console.log("Pass!");
 } else {
   console.log("Fail");
@@ -234,17 +232,18 @@ if (Score >= 50) {
 //   total >= 100 AND member -> 20% off, total >= 100 only -> 10% off, otherwise -> no discount.
 // Log the final price.
 
-let total = 180;
+let total = 99;
 let isMember = true;
 if (isMember === true && total >= 100) {
-  console.log("20%");
-} else if (total >= 100) {
-  console.log("10%");
+  total = total * 0.8;
+  console.log(total);
+} else if (total >= 100 && isMember === false) {
+  total = total * 0.9;
+  console.log(total);
 } else {
-  console.log("no discount");
+  total = total;
+  console.log(total);
 }
-let finalPrice = total + isMember;
-console.log(finalPrice);
 
 // ----- 8. Login system -----
 // Variables: const correctUser, const correctPass, plus enteredUser, enteredPass, isLocked (boolean).
@@ -254,13 +253,13 @@ const correctUser = "admin";
 const correctPass = 151221;
 let enteredUser = "User";
 let enteredPass = 1221;
-let isLocket = true;
+let isLocket = false;
 if (correctUser === "admin" && correctPass === 151221 && isLocket === true) {
   console.log("Welcome");
 } else if (
   enteredUser === "User" &&
   enteredPass === 1221 &&
-  isLocket === true
+  isLocket === false
 ) {
   console.log("Welcome");
 } else {
@@ -271,10 +270,19 @@ if (correctUser === "admin" && correctPass === 151221 && isLocket === true) {
 // Variables: weight (kg), height (m). bmi = weight / (height * height). Log:
 //   below 18.5 -> "Underweight", 18.5–24.9 -> "Normal", 25–29.9 -> "Overweight", 30+ -> "Obese".
 
-// let weight = "76kg";
-// let height = "2m";
-// let bmi = weight / (height * height);
-// if()
+let Weight = 80;
+let Height = 1.8;
+let bmi = Weight / (Height * Height);
+console.log(bmi);
+if (bmi < 18.5) {
+  console.log("Underweight");
+} else if (bmi >= 18.5 && bmi <= 24.9) {
+  console.log("Normal");
+} else if (bmi >= 25 && bmi <= 29.9) {
+  console.log("Overweight");
+} else {
+  console.log("Obese");
+}
 
 // ----- 10. Mini ATM -----
 // let balance = 500, let withdrawAmount = 200, const dailyLimit = 300.
@@ -285,17 +293,27 @@ if (correctUser === "admin" && correctPass === 151221 && isLocket === true) {
 let balance = 500;
 let withdrawAmount = 200;
 const dailyLimit = 300;
-if (
-  (withdrawAmount === 120 <= balance) === 500 &&
-  (withdrawAmount === 200 <= dailyLimit) === 300
-) {
-  console.log("Success");
+if (withdrawAmount <= balance && withdrawAmount <= dailyLimit) {
   balance = balance - withdrawAmount;
+  console.log("Success");
+  console.log(balance);
+} else if (withdrawAmount > balance) {
+  console.log("Insufficient funds");
+} else {
+  withdrawAmount > dailyLimit;
+  console.log("Over daily limit");
 }
 
 // ----- 11. Leap year check -----
 // Variable: year. Leap when divisible by 4 AND (not divisible by 100 OR divisible by 400).
 // Use % with && and ||. Log "Leap year" or "Normal year". Test with 2000, 1900, 2024.
+
+let year = 2026;
+if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+  console.log("Leap year");
+} else {
+  console.log("Normal year");
+}
 
 // ----- 12. FizzBuzz (one number) -----
 // Variable: n. divisible by 3 AND 5 -> "FizzBuzz", by 3 only -> "Fizz", by 5 only -> "Buzz",
