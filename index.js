@@ -30,7 +30,7 @@ if (age >= 16) {
 // Declare `let isWeekend = true`. Log "Relax!" if it is the weekend, otherwise "Go to work".
 
 let isWeekend = true;
-if ((isWeekend = true)) {
+if (isWeekend === true) {
   console.log("Relax!");
 } else {
   console.log("Go to Work");
@@ -70,7 +70,7 @@ let a = 14;
 let b = 9;
 if (a > b) {
   console.log("larger");
-} else if ((a = b)) {
+} else if (a === b) {
   console.log("equal");
 }
 
@@ -79,9 +79,9 @@ if (a > b) {
 //   above 28 -> "Wear shorts", 15 to 28 -> "Wear a jacket", below 15 -> "Wear a coat".
 
 let temp = 30;
-if (temp <= 28) {
+if (temp >= 28) {
   console.log("Wear shorts");
-} else if ((temp) => 15 && temp <= 28) {
+} else if (temp >= 15 && temp <= 28) {
   console.log("Wear a Jacket");
 } else {
   console.log("Wear a Coat");
@@ -92,8 +92,8 @@ if (temp <= 28) {
 // If both are correct, log "Welcome", otherwise "Access denied".
 
 let username = "admin";
-let password = "1234";
-if (username && password) {
+let password = 1234;
+if (username === "admin" && password === 1234) {
   console.log("Welcome");
 } else {
   console.log("Access Denied");
@@ -114,10 +114,10 @@ if ((n = -5)) {
 // ----- 9. Ticket price -----
 // Declare `let age = 65`. Price: under 12 -> "$5", 12 to 64 -> "$12", 65+ -> "$8".
 
-let price = 65;
-if (price <= 12) {
+let age1 = 65;
+if (age1 <= 12) {
   console.log("$5");
-} else if ((price) => 12 && age <= 64) {
+} else if (age1 >= 12 && age1 <= 64) {
   console.log("$12");
 } else {
   console.log("$8");
@@ -127,8 +127,16 @@ if (price <= 12) {
 // Declare `let light = "yellow"`. Log:
 //   "green" -> "Go", "yellow" -> "Slow down", "red" -> "Stop", else -> "Invalid light".
 
-let light = yellow
-
+let light = "yellow";
+if (light == "green") {
+  console.log("Go");
+} else if (light == "yellow") {
+  console.log("Slow down");
+} else if (light == "red") {
+  console.log("Stop");
+} else {
+  console.log("Invalid light");
+}
 
 /* ============================================================
    PART 2 — COMBINED PROJECT (variables + operators + if)
@@ -138,39 +146,128 @@ let light = yellow
 // Variables: age, hasMembership (boolean).
 //   under 12 OR over 65 -> "$6", member of any age -> "$8", everyone else -> "$12". Log the price.
 
+let Age = 64;
+let hasMembership = true;
+if (Age <= 12 || Age >= 65) {
+  console.log("$6");
+} else if (hasMembership === true) {
+  console.log("$8");
+} else {
+  console.log("$12");
+}
+
 // ----- 2. Password strength -----
 // Variable: password (string). Using password.length:
 //   >= 12 -> "Strong", >= 8 -> "Medium", otherwise -> "Weak".
 
+let Password = "Strong";
+let length = 8;
+if (length >= 12) {
+  console.log("Strong");
+} else if (length >= 8) {
+  console.log("Medium");
+} else {
+  console.log("Weak");
+}
 // ----- 3. Game level up -----
 // let xp = 250, const levelUpAt = 200. If xp >= levelUpAt, log "Level up!" and reset xp to 0;
 // otherwise log how much XP is left. Show xp before and after.
 
+let xp = 250;
+const levelUpAt = 200;
+if (xp >= levelUpAt) {
+  console.log("Level up!");
+}
+
 // ----- 4. Tip calculator -----
 // Variables: bill, serviceWasGood (boolean). Good -> 20% tip, otherwise 10%.
 // Compute the tip and the total, log both.
+
+let bill = 100;
+let serviceWasGood = true;
+if (bill % 20) {
+  console.log("20!");
+} else {
+  console.log(serviceWasGood % 10);
+}
 
 // ----- 5. Weather outfit -----
 // Variables: temp, isRaining (boolean).
 //   raining AND temp < 15 -> "Coat and umbrella", raining only -> "Umbrella",
 //   temp > 28 -> "T-shirt", otherwise -> "Light jacket".
 
+let teMp = 16;
+let israining = false;
+if (israining === true && teMp < 15) {
+  console.log("Coat and umbrella");
+} else if (israining === true) {
+  console.log("Umbrella");
+} else if (teMp > 28) {
+  console.log("T-shirt");
+} else {
+  console.log("Light jacket");
+}
+
 // ----- 6. Exam pass with bonus -----
 // Variables: score, attendedExtraClass (boolean).
 // Pass if score >= 50, OR if score >= 45 AND attended the extra class. Log "Pass" or "Fail".
+
+let Score = 50;
+let attendedExtraClass = true;
+if (Score >= 50) {
+  console.log("Pass");
+} else if (attendedExtraClass === true && score >= 45) {
+  console.log("Pass!");
+} else {
+  console.log("Fail");
+}
 
 // ----- 7. Cart discount -----
 // Variables: total, isMember (boolean).
 //   total >= 100 AND member -> 20% off, total >= 100 only -> 10% off, otherwise -> no discount.
 // Log the final price.
 
+let total = 180;
+let isMember = true;
+if (isMember === true && total >= 100) {
+  console.log("20%");
+} else if (total >= 100) {
+  console.log("10%");
+} else {
+  console.log("no discount");
+}
+let finalPrice = total + isMember;
+console.log(finalPrice);
+
 // ----- 8. Login system -----
 // Variables: const correctUser, const correctPass, plus enteredUser, enteredPass, isLocked (boolean).
 // Log "Welcome" only when NOT locked AND both username and password match. Otherwise "Login failed".
 
+const correctUser = "admin";
+const correctPass = 151221;
+let enteredUser = "User";
+let enteredPass = 1221;
+let isLocket = true;
+if (correctUser === "admin" && correctPass === 151221 && isLocket === true) {
+  console.log("Welcome");
+} else if (
+  enteredUser === "User" &&
+  enteredPass === 1221 &&
+  isLocket === true
+) {
+  console.log("Welcome");
+} else {
+  console.log("Login Failed");
+}
+
 // ----- 9. BMI category -----
 // Variables: weight (kg), height (m). bmi = weight / (height * height). Log:
 //   below 18.5 -> "Underweight", 18.5–24.9 -> "Normal", 25–29.9 -> "Overweight", 30+ -> "Obese".
+
+// let weight = "76kg";
+// let height = "2m";
+// let bmi = weight / (height * height);
+// if()
 
 // ----- 10. Mini ATM -----
 // let balance = 500, let withdrawAmount = 200, const dailyLimit = 300.
