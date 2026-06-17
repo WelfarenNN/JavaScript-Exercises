@@ -190,6 +190,12 @@ if (serviceWasGood === true) {
   console.log("Good");
   serviceWasGood = (bill / 100) * 20;
   console.log(serviceWasGood, "Good");
+  let totAl = bill + serviceWasGood;
+  console.log(totAl);
+} else if (serviceWasGood === false) {
+  console.log("Not bad");
+  serviceWasGood = (bill / 100) * 10;
+  console.log(serviceWasGood, "Not bad");
 }
 
 // ----- 5. Weather outfit -----
