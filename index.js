@@ -160,11 +160,10 @@ if (Age <= 12 || Age >= 65) {
 // Variable: password (string). Using password.length:
 //   >= 12 -> "Strong", >= 8 -> "Medium", otherwise -> "Weak".
 
-let Password = "Strong";
-let length = 8;
-if (length >= 12) {
+let Password = "26lp89151895";
+if (Password.length >= 12) {
   console.log("Strong");
-} else if (length >= 8) {
+} else if (Password.length >= 8) {
   console.log("Medium");
 } else {
   console.log("Weak");
@@ -177,18 +176,20 @@ let xp = 250;
 const levelUpAt = 200;
 if (xp >= levelUpAt) {
   console.log("Level up!");
+  xp = xp - levelUpAt;
+  console.log(xp, "after");
 }
 
 // ----- 4. Tip calculator -----
 // Variables: bill, serviceWasGood (boolean). Good -> 20% tip, otherwise 10%.
 // Compute the tip and the total, log both.
 
-let bill = 100;
+let bill = 180;
 let serviceWasGood = true;
-if (bill % 20) {
-  console.log("20!");
-} else {
-  console.log(serviceWasGood % 10);
+if (serviceWasGood === true) {
+  console.log("Good");
+  serviceWasGood = (bill / 100) * 20;
+  console.log(serviceWasGood, "Good");
 }
 
 // ----- 5. Weather outfit -----
@@ -274,6 +275,17 @@ if (correctUser === "admin" && correctPass === 151221 && isLocket === true) {
 // Allow only when withdrawAmount <= balance AND withdrawAmount <= dailyLimit.
 //   allowed -> subtract from balance, log "Success" + new balance;
 //   too much -> "Insufficient funds"; over limit -> "Over daily limit".
+
+let balance = 500;
+let withdrawAmount = 200;
+const dailyLimit = 300;
+if (
+  (withdrawAmount === 120 <= balance) === 500 &&
+  (withdrawAmount === 200 <= dailyLimit) === 300
+) {
+  console.log("Success");
+  balance = balance - withdrawAmount;
+}
 
 // ----- 11. Leap year check -----
 // Variable: year. Leap when divisible by 4 AND (not divisible by 100 OR divisible by 400).
