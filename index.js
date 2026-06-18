@@ -319,28 +319,90 @@ if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
 // Variable: n. divisible by 3 AND 5 -> "FizzBuzz", by 3 only -> "Fizz", by 5 only -> "Buzz",
 // otherwise -> the number itself. Test with 15, 9, 10, 7.
 
+let nm = 9;
+if (nm % 3 === 0 && nm % 5 === 0) {
+  console.log("FizzBuzz");
+} else if (nm % 3 === 0) {
+  console.log("Fizz");
+} else if (nm % 5 === 0) {
+  console.log("Buzz");
+} else {
+  console.log(nm);
+}
+
 // ----- 13. Rock paper scissors -----
 // Variables: player1, player2 (strings: "rock", "paper", "scissors").
 // Log "Player 1 wins", "Player 2 wins", or "Tie". rock>scissors, scissors>paper, paper>rock.
 
+let player1 = "rock";
+let player2 = "paper";
+if (player1 === player2) {
+  console.log("Tie");
+} else if (
+  (player1 === "rock" && player2 === "scissor") ||
+  (player1 === "paper" && player2 === "rock") ||
+  (player1 === "scissor" && player2 === "paper")
+) {
+  console.log("Player 1 Win");
+} else {
+  console.log("Player 2 Win");
+}
 // ----- 14. Triangle type -----
 // Variables: sides a, b, c. First check valid triangle (each side < sum of other two).
 // invalid -> "Not a triangle"; all equal -> "Equilateral"; exactly two equal -> "Isosceles";
 // all different -> "Scalene".
+
+let A = 3;
+let B = 5;
+let C = 4;
+if (A >= B + C || B >= A + C || C >= A + B) {
+  console.log("Not triangle");
+} else if (A === B && B === C) {
+  console.log("Equilateral");
+} else if (A === B || B === C || A === C) {
+  console.log("Isosceles");
+} else {
+  console.log("Scalene");
+}
 
 // ----- 15. 12-hour clock -----
 // Variable: hour (0–23). Convert to 12-hour and log like "3 PM".
 //   0 -> "12 AM", 12 -> "12 PM", 1–11 -> "AM", 13–23 -> subtract 12 and add "PM".
 // Test with 0, 9, 12, 18.
 
+let hour = 9;
+if (hour === 0) {
+  console.log("12 AM");
+} else if (hour === 12) {
+  console.log("12 PM");
+} else if (hour >= 1 && hour <= 11) {
+  console.log(hour, "AM");
+} else {
+  hour >= 13 && hour <= 23;
+  console.log(hour, "PM");
+}
+
 // ----- 16. Shipping cost -----
 // Variables: weight (kg), isExpress (boolean), isMember (boolean).
 // Base: weight <= 1 -> $5, weight <= 5 -> $10, otherwise -> $20.
 // If isExpress, double base. Then if isMember, take $3 off (never below $0). Log final cost.
 
+let wEight = 3;
+let isExpress = true;
+let isMembeR = true;
+if (wEight <= 1) {
+  console.log("$5");
+} else if (wEight <= 5) {
+  console.log("$10");
+} else {
+  console.log("$20");
+}
+
 // ----- 17. Progressive tax -----
 // Variable: income. first $10,000 -> 0%, $10,001–$30,000 -> 10% on that portion,
 // above $30,000 -> 20% on that portion. Log total tax. Test with 5000, 20000, 50000.
+
+let income = 20000;
 
 // ----- 18. Password validator -----
 // Variables: password (string), confirmPassword (string). Log "Valid" only when ALL true:
@@ -464,3 +526,4 @@ if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
 /* ============================================================
    End of workbook. Nice work!
    ============================================================ */
+
